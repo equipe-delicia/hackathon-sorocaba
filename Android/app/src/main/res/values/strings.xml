@@ -1,0 +1,19 @@
+<resources>
+    <!-- App -->
+    <string name="app_name">Waterlicious</string>
+
+    <!-- Titles -->
+    <string name="title_dashboard">Dashboard</string>
+
+    <!-- Drawers -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Menus -->
+    <string name="action_share">Share</string>
+
+    <!-- Labels -->
+
+    <!-- Messages -->
+
+</resources>
