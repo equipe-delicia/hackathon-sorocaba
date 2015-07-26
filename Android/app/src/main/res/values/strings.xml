@@ -11,6 +11,7 @@
 
     <!-- Menus -->
     <string name="action_share">Share</string>
+    <string name="msg_state_nodata">Ainda não possuímos os dados pluviais para o seu estado.</string>
 
     <!-- Labels -->
 
