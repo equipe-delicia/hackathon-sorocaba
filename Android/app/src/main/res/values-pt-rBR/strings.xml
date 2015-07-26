@@ -16,4 +16,9 @@
     <!-- Labels -->
 
     <!-- Messages -->
+    <string name="msg_state_nodata">Ainda não possuímos os dados pluviais para o seu estado.</string>
+    <string name="msg_loading">Aguarde...</string>
+    <string name="msg_unexpected">Ocorreu um erro inexperado: %s</string>
+    <string name="title_alert">Alerta</string>
+    <string name="ok">Ok</string>
 </resources>

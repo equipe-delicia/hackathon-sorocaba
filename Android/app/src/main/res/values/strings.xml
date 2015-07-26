@@ -11,10 +11,19 @@
 
     <!-- Menus -->
     <string name="action_share">Share</string>
-    <string name="msg_state_nodata">Ainda não possuímos os dados pluviais para o seu estado.</string>
 
     <!-- Labels -->
 
     <!-- Messages -->
+    <string name="msg_state_nodata">Ainda não possuímos os dados pluviais para o seu estado.</string>
+    <string name="msg_loading">Loading...</string>
+    <string name="msg_unexpected">Ocorreu um erro inexperado: %s</string>
+    <string name="title_alert">Alerta</string>
+    <string name="ok">Ok</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

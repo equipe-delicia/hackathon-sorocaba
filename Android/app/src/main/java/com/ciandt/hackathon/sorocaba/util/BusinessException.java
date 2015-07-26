@@ -1,26 +1,22 @@
 package com.ciandt.hackathon.sorocaba.util;
 
+import com.ciandt.hackathon.sorocaba.R;
+
 /**
  * Created by falvojr on 7/26/2015.
  */
 public class BusinessException extends RuntimeException {
 
     private int mMessageRes;
-    private boolean mUnexpected;
 
     public BusinessException(Throwable throwable) {
         super(throwable);
-        mUnexpected = true;
+        mMessageRes = R.string.msg_unexpected;
     }
 
     public BusinessException(int messageRes) {
         super();
         mMessageRes = messageRes;
-        mUnexpected = false;
-    }
-
-    public boolean isUnexpected() {
-        return mUnexpected;
     }
 
     public int getMessageRes() {

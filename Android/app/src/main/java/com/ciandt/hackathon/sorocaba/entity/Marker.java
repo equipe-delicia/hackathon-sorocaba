@@ -1,25 +1,22 @@
 package com.ciandt.hackathon.sorocaba.entity;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by robson on 26/07/15.
  */
-public class Marker implements Parcelable {
+public class Marker {
 
     @JsonProperty("name")
     private String mName;
     @JsonProperty("average")
     private double mAverage;
     @JsonProperty("currentvalue")
-    private double mCurrentvalue;
+    private double mCurrentValue;
     @JsonProperty("lat")
-    private String mLat;
+    private double mLat;
     @JsonProperty("lon")
-    private String mLon;
+    private double mLon;
 
     public Marker() {}
 
@@ -39,42 +36,42 @@ public class Marker implements Parcelable {
         this.mAverage = average;
     }
 
-    public double getCurrentvalue() {
-        return mCurrentvalue;
+    public double getCurrentValue() {
+        return mCurrentValue;
     }
 
-    public void setCurrentvalue(double currentvalue) {
-        this.mCurrentvalue = currentvalue;
+    public void setCurrentValue(double currentValue) {
+        this.mCurrentValue = currentValue;
     }
 
-    public String getLat() {
+    public double getLat() {
         return mLat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.mLat = lat;
     }
 
-    public String getLon() {
+    public double getLon() {
         return mLon;
     }
 
-    public void setLon(String lon) {
+    public void setLon(double lon) {
         this.mLon = lon;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Marker)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Marker marker = (Marker) o;
 
         if (Double.compare(marker.mAverage, mAverage) != 0) return false;
-        if (Double.compare(marker.mCurrentvalue, mCurrentvalue) != 0) return false;
-        if (!mName.equals(marker.mName)) return false;
-        if (!mLat.equals(marker.mLat)) return false;
-        return mLon.equals(marker.mLon);
+        if (Double.compare(marker.mCurrentValue, mCurrentValue) != 0) return false;
+        if (Double.compare(marker.mLat, mLat) != 0) return false;
+        if (Double.compare(marker.mLon, mLon) != 0) return false;
+        return mName.equals(marker.mName);
 
     }
 
@@ -85,54 +82,13 @@ public class Marker implements Parcelable {
         result = mName.hashCode();
         temp = Double.doubleToLongBits(mAverage);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(mCurrentvalue);
+        temp = Double.doubleToLongBits(mCurrentValue);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + mLat.hashCode();
-        result = 31 * result + mLon.hashCode();
+        temp = Double.doubleToLongBits(mLat);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(mLon);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "Marker{" +
-                "mName='" + mName + '\'' +
-                ", mAverage=" + mAverage +
-                ", mCurrentvalue=" + mCurrentvalue +
-                ", mLat='" + mLat + '\'' +
-                ", mLon='" + mLon + '\'' +
-                '}';
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.mName);
-        dest.writeDouble(this.mAverage);
-        dest.writeDouble(this.mCurrentvalue);
-        dest.writeString(this.mLat);
-        dest.writeString(this.mLon);
-    }
-
-    protected Marker(Parcel in) {
-        this.mName = in.readString();
-        this.mAverage = in.readDouble();
-        this.mCurrentvalue = in.readDouble();
-        this.mLat = in.readString();
-        this.mLon = in.readString();
-    }
-
-    public static final Parcelable.Creator<Marker> CREATOR = new Parcelable.Creator<Marker>() {
-        public Marker createFromParcel(Parcel source) {
-            return new Marker(source);
-        }
-
-        public Marker[] newArray(int size) {
-            return new Marker[size];
-        }
-    };
 
 }
