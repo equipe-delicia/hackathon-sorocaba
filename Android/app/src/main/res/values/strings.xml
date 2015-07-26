@@ -25,5 +25,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="msg_maps_snippet">Índices pluviométricos %s</string>
+    <string name="msg_snippet_fine">normais</string>
+    <string name="msg_snippet_low">baixos</string>
 
 </resources>

@@ -59,17 +59,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng lastLatLng = null;
             for (Marker marker : mMarkes) {
                 boolean isFine = marker.getCurrentValue() >= marker.getAverage();
-                lastLatLng = new LatLng(marker.getLat(), marker.getLon());
                 map.addMarker(new MarkerOptions()
-                        .position(lastLatLng)
+                        .position(new LatLng(marker.getLat(), marker.getLon()))
                         .title(marker.getName())
+                        .snippet(getString(R.string.msg_maps_snippet, getString(isFine ? R.string.msg_snippet_fine : R.string.msg_snippet_low)))
                         .icon(BitmapDescriptorFactory.defaultMarker(isFine ? BitmapDescriptorFactory.HUE_GREEN : BitmapDescriptorFactory.HUE_RED)));
             }
-            // Move the camera instantly to hamburg with a zoom of 15.
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLatLng, 15));
+            // Move the camera instantly to hamburg with a zoom of 10.
+            final LatLng zoomReferencePoint = new LatLng(-22.5645, -47.4004);
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(zoomReferencePoint, 12));
 
             // Zoom in, animating the camera.
-            map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+            map.animateCamera(CameraUpdateFactory.zoomTo(7), 2000, null);
         }
     }
 

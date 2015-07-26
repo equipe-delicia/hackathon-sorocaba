@@ -21,4 +21,7 @@
     <string name="msg_unexpected">Ocorreu um erro inexperado: %s</string>
     <string name="title_alert">Alerta</string>
     <string name="ok">Ok</string>
+    <string name="msg_maps_snippet">Índices pluviométricos %s</string>
+    <string name="msg_snippet_fine">normais</string>
+    <string name="msg_snippet_low">baixos</string>
 </resources>

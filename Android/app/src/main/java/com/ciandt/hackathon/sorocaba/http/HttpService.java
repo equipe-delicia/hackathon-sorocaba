@@ -21,7 +21,7 @@ public class HttpService {
     private static final String API_APP = "http://192.168.5.109:3000/hackathon/api/v1";
 
     public List<Marker> getMarkes() {
-        List<Marker> marker = new ArrayList<>();
+        List<Marker> markers = new ArrayList<>();
 
         try {
             URL url = new URL(API_APP + "/pluviometer");
@@ -35,13 +35,20 @@ public class HttpService {
             final ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             CollectionType collectionType = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, Marker.class);
-            marker = objectMapper.readValue(conn.getInputStream(), collectionType);
+            markers = objectMapper.readValue(conn.getInputStream(), collectionType);
+            for (Marker marker : markers) {
+                if ("sorocaba".equals(marker.getName())) {
+                    marker.setName("Sorocaba");
+                } else if ("saojosedoscampos".equals(marker.getName())) {
+                    marker.setName("Sao Jose dos Campos");
+                }
+            }
             conn.disconnect();
         } catch (Exception e) {
             throw new BusinessException(e);
         }
 
-        return marker;
+        return markers;
     }
 
     /**
